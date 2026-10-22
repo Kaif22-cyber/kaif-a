@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BCA Unit II assignment demonstrating HTML, HTML5, tables, forms, images, navigation, semantic elements, entities, and frames.">
+<meta name="author" content="Kaif Ahmad">
+<title>Unit II — HTML & HTML5 Assignment</title>
+<style>
+:root{--ink:#172033;--muted:#5d687b;--brand:#3157d5;--brand2:#eaf0ff;--line:#dfe5ef;--paper:#fff;--bg:#f4f7fb;--green:#16775a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(125deg,#172554,#3157d5);color:white;padding:38px 20px 30px} .hero{max-width:1120px;margin:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;opacity:.82}.hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.12;margin:10px 0}.hero p{max-width:760px;margin:12px 0 0;color:#e2eaff}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 14px #15213a0a}
+.nav-inner{max-width:1120px;margin:auto;display:flex;gap:8px;overflow-x:auto;padding:10px 16px}
+nav a{white-space:nowrap;text-decoration:none;color:#263550;padding:8px 11px;border-radius:8px;font-size:.9rem;font-weight:700}nav a:hover,nav a:focus{background:var(--brand2);color:var(--brand)}
+main{max-width:1120px;margin:28px auto;padding:0 18px 48px}.intro{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:22px}.intro p{margin:5px 0;color:var(--muted)}
+section.task{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,30px);margin:22px 0;box-shadow:0 8px 26px #18284a08}
+.task-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}.number{flex:0 0 42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--brand2);color:var(--brand);font-weight:800}.task h2{margin:0;font-size:1.35rem;line-height:1.3}.sub{color:var(--muted);margin:4px 0 0;font-size:.92rem}
+h3{font-size:1.06rem;margin:20px 0 8px}p{margin:8px 0}ul{padding-left:22px}
+.profile{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;background:#f8faff;border:1px solid var(--line);padding:20px;border-radius:14px}
+.avatar{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#dbeafe,#c7d2fe);font-size:3.5rem;margin:auto}.tag{display:inline-block;background:#e8f7f1;color:#126447;border-radius:999px;padding:4px 10px;font-size:.82rem;font-weight:700}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:15px}.info-card{border:1px solid var(--line);padding:14px;border-radius:10px}.info-card strong{display:block;color:var(--brand);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:650px}caption{text-align:left;font-weight:700;padding:0 0 10px}th,td{border:1px solid #cfd8e6;padding:10px;text-align:center}thead th{background:#20366b;color:white}tbody th{background:#edf2ff;text-align:left}tbody tr:nth-child(even) td{background:#f8faff}.lab{background:#e7f7f1!important;color:#126447;font-weight:700}.break{background:#fff4d9!important;color:#7a4d00;font-weight:700}.note{background:#f4f7fb;border-left:4px solid var(--brand);padding:12px 15px;border-radius:0 8px 8px 0;margin-top:14px;color:#3e4a60}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px} .field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}label{font-weight:700;font-size:.92rem}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #bac5d6;border-radius:8px;font:inherit;background:white;color:var(--ink)}input:focus,select:focus,textarea:focus{outline:3px solid #dbe5ff;border-color:var(--brand)}.choices{display:flex;gap:15px;flex-wrap:wrap}.choices label{font-weight:400;display:flex;align-items:center;gap:6px}.choices input{width:auto}.buttons{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:8px;padding:11px 17px;font-weight:700;cursor:pointer}.primary{background:var(--brand);color:#fff}.secondary{background:#e9edf5;color:#263550}.small{font-size:.84rem;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.gallery figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}.gallery img{width:100%;height:185px;object-fit:cover;display:block;background:#e8edf5}.gallery figcaption{padding:12px;font-size:.91rem}.gallery figcaption strong{display:block;margin-bottom:3px}
+.site-preview{border:1px solid var(--line);border-radius:12px;overflow:hidden}.site-preview header{padding:15px 18px;background:#20366b}.site-preview header strong{font-size:1.1rem}.site-preview nav{position:static;box-shadow:none;background:#f3f6ff}.site-preview nav .nav-inner{padding:8px 12px;flex-wrap:wrap}.site-preview nav a{font-size:.85rem}.site-preview .site-content{padding:18px;background:white}.site-preview .site-content a{color:var(--brand)}
+.semantic-layout{display:grid;grid-template-columns:1fr 220px;gap:12px}.semantic-layout header,.semantic-layout nav,.semantic-layout main,.semantic-layout article,.semantic-layout section,.semantic-layout aside,.semantic-layout footer{padding:12px;border-radius:8px;border:1px solid #b9c8e2}.semantic-layout header,.semantic-layout footer{grid-column:1/-1;background:#edf2ff}.semantic-layout nav{grid-column:1/-1;background:#f6f8fc}.semantic-layout main{background:#fff}.semantic-layout article{background:#f8faff}.semantic-layout section{margin-top:8px;background:#fff}.semantic-layout aside{background:#fff7e8}
+.entity-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.entity{padding:12px;border:1px solid var(--line);border-radius:9px;background:#fbfcff}.entity code{font-size:1.02rem;color:#1d43a8;font-weight:700}.entity p{font-size:.88rem;color:var(--muted);margin-bottom:0}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare-card{border:1px solid var(--line);border-radius:12px;padding:16px}.compare-card h3{margin-top:0}.old{background:#fff9f0}.modern{background:#f3fbf7}
+code,pre{font-family:Consolas,Monaco,monospace}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#172033;color:#e8efff;border-radius:10px;padding:15px;font-size:.88rem}.inline-code{background:#edf1fa;padding:2px 5px;border-radius:4px}
+footer.page-footer{text-align:center;color:var(--muted);padding:22px}
+@media(max-width:700px){.profile{grid-template-columns:1fr;text-align:center}.gallery{grid-template-columns:1fr 1fr}.semantic-layout{grid-template-columns:1fr}.semantic-layout header,.semantic-layout nav,.semantic-layout main,.semantic-layout aside,.semantic-layout footer{grid-column:1}.comparison{grid-template-columns:1fr}form{grid-template-columns:1fr}.field.full{grid-column:auto}}
+@media(max-width:460px){.gallery{grid-template-columns:1fr}.hero{padding:0 2px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hero">
+    <div class="eyebrow">BCA • Practical Assignment</div>
+    <h1>Unit II: HTML &amp; HTML5</h1>
+    <p>A single-page practical portfolio covering HTML structure, tables, forms, images, hyperlinks, semantic elements, character entities, and the modern alternative to frames.</p>
+  </div>
+</header>
+<nav aria-label="Assignment sections">
+  <div class="nav-inner">
+    <a href="#q1">Q1 Profile</a><a href="#q2">Q2 Timetable</a><a href="#q3">Q3 Form</a><a href="#q4">Q4 Gallery</a><a href="#q5">Q5 Navigation</a><a href="#q6">Q6 Semantic HTML5</a><a href="#q7">Q7 Entities</a><a href="#q8">Q8 Frames</a>
+  </div>
+</nav>
+<main>
+<div class="intro">
+  <strong>Assignment overview</strong>
+  <p>This page combines all eight tasks in one HTML document. The sample student details and timetable are illustrative; replace them with your own details and your college's actual timetable before submitting.</p>
+</div>
+
+<section class="task" id="q1">
+  <div class="task-head"><div class="number">Q1</div><div><h2>Personal Profile Webpage</h2><p class="sub">Heading hierarchy, introduction, education, skills, hobbies, image, links and footer.</p></div></div>
+  <article>
+    <div class="profile">
+      <div class="avatar" role="img" aria-label="Illustration representing a student profile">🎓</div>
+      <div><span class="tag">BCA Student</span><h1 style="font-size:2rem;margin:8px 0">Kaif Ahmad</h1><p>Hello! I am a Bachelor of Computer Applications student interested in web development, programming and learning new technologies.</p><p><a href="#q5">Explore department links</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">Learn HTML on MDN</a></p></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><strong>Education</strong><p>Bachelor of Computer Applications (BCA)</p><p class="small">College / University Name</p></div>
+      <div class="info-card"><strong>Skills</strong><p>HTML, CSS, basic programming, problem-solving and teamwork.</p></div>
+      <div class="info-card"><strong>Hobbies</strong><p>Coding, reading technology articles, music and exploring creative projects.</p></div>
+    </div>
+    <h3>Career objective</h3><p>To build a strong foundation in computer applications and develop useful, accessible and user-friendly software and websites.</p>
+  </article>
+  <div class="note"><strong>Purpose of the elements:</strong> headings create a clear content hierarchy; paragraphs hold text; <code>&lt;article&gt;</code> groups profile content; <code>&lt;a&gt;</code> creates hyperlinks; the footer identifies the page's closing information.</div>
+</section>
+
+<section class="task" id="q2">
+  <div class="task-head"><div class="number">Q2</div><div><h2>BCA University Timetable</h2><p class="sub">HTML table with days, periods, subjects, lab sessions and merged cells.</p></div></div>
+  <div class="table-wrap">
+  <table>
+    <caption>Sample BCA Weekly Timetable — Semester III</caption>
+    <thead><tr><th scope="col">Day</th><th scope="col">09:00–10:00</th><th scope="col">10:00–11:00</th><th scope="col">11:00–11:15</th><th scope="col">11:15–12:15</th><th scope="col">12:15–01:15</th><th scope="col">01:15–02:00</th><th scope="col">02:00–03:00</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Monday</th><td>DBMS</td><td>Mathematics</td><td class="break" rowspan="5">Break</td><td>Web Technology</td><td>Computer Networks</td><td class="break" rowspan="5">Lunch</td><td class="lab" rowspan="2">HTML/CSS Lab<br><small>Lab 1 • Faculty A</small></td></tr>
+      <tr><th scope="row">Tuesday</th><td>Computer Networks</td><td>DBMS</td><td>Mathematics</td><td>Communication</td></tr>
+      <tr><th scope="row">Wednesday</th><td>Web Technology</td><td>Mathematics</td><td>DBMS</td><td>Computer Networks</td><td>Library / Tutorial</td></tr>
+      <tr><th scope="row">Thursday</th><td>Mathematics</td><td>Communication</td><td>Web Technology</td><td>DBMS</td><td class="lab" rowspan="2">Programming Lab<br><small>Lab 2 • Faculty B</small></td></tr>
+      <tr><th scope="row">Friday</th><td>DBMS</td><td>Web Technology</td><td>Computer Networks</td><td>Mathematics</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>Why use a table?</strong> A timetable contains related data arranged in rows and columns, so a table makes comparisons across days and periods clear. <code>rowspan</code> merges cells vertically (for breaks and labs); <code>colspan</code> can merge columns when one session spans multiple periods. Replace the sample entries with your official timetable.</div>
+</section>
+
+<section class="task" id="q3">
+  <div class="task-head"><div class="number">Q3</div><div><h2>Online Student Registration Form</h2><p class="sub">Labels, suitable input types, select menu, textarea, file upload and submit/reset controls.</p></div></div>
+  <form action="#" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault();document.getElementById('form-message').textContent='Demo only: the form is validated in the browser, but no data has been sent to a server.';">
+    <div class="field"><label for="full-name">Full name *</label><input id="full-name" name="fullName" type="text" placeholder="Enter your full name" autocomplete="name" required></div>
+    <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required></div>
+    <div class="field"><label for="password">Create password *</label><input id="password" name="password" type="password" minlength="8" autocomplete="new-password" required><span class="small">Use at least 8 characters for this demo.</span></div>
+    <div class="field"><label for="dob">Date of birth</label><input id="dob" name="dateOfBirth" type="date"></div>
+    <div class="field"><span class="label" style="font-weight:700;font-size:.92rem">Gender</span><div class="choices"><label><input type="radio" name="gender" value="female"> Female</label><label><input type="radio" name="gender" value="male"> Male</label><label><input type="radio" name="gender" value="other"> Other</label><label><input type="radio" name="gender" value="prefer-not-to-say"> Prefer not to say</label></div></div>
+    <div class="field"><label for="course">Course *</label><select id="course" name="course" required><option value="">Select a course</option><option>BCA</option><option>BBA</option><option>B.Com</option><option>BA</option><option>B.Sc.</option></select></div>
+    <div class="field full"><span style="font-weight:700;font-size:.92rem">Hobbies</span><div class="choices"><label><input type="checkbox" name="hobbies" value="coding"> Coding</label><label><input type="checkbox" name="hobbies" value="reading"> Reading</label><label><input type="checkbox" name="hobbies" value="sports"> Sports</label><label><input type="checkbox" name="hobbies" value="music"> Music</label></div></div>
+    <div class="field full"><label for="address">Address</label><textarea id="address" name="address" rows="3" placeholder="Enter your postal address" autocomplete="street-address"></textarea></div>
+    <div class="field full"><label for="document">Upload a photo/document</label><input id="document" name="document" type="file" accept="image/*,.pdf"><span class="small">Demo field only. Avoid uploading sensitive documents to a public repository.</span></div>
+    <div class="field full"><div class="buttons"><button class="btn primary" type="submit">Submit Registration</button><button class="btn secondary" type="reset">Reset Form</button></div><p id="form-message" class="small" aria-live="polite"></p></div>
+  </form>
+  <div class="note"><strong>Explanation:</strong> labels make fields easier to understand and support assistive technology. Input types such as <code>email</code>, <code>password</code>, <code>date</code> and <code>file</code> provide suitable controls. This is a front-end demonstration; a real registration system needs a secure server to process and store submissions.</div>
+</section>
+
+<section class="task" id="q4">
+  <div class="task-head"><div class="number">Q4</div><div><h2>College Event Image Gallery</h2><p class="sub">Images with meaningful alternative text, captions and responsive sizing.</p></div></div>
+  <div class="gallery">
+    <figure><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Students gathered in a bright university classroom for a learning activity" loading="lazy"><figcaption><strong>Learning Together</strong>Students taking part in a classroom activity.</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="A group of university students smiling together at a campus event" loading="lazy"><figcaption><strong>Campus Community</strong>Students connecting during a college event.</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Laptop and digital workspace used for a technology or coding activity" loading="lazy"><figcaption><strong>Technology Workshop</strong>A workspace for digital learning and collaboration.</figcaption></figure>
+  </div>
+  <div class="note"><strong>Image size and accessibility:</strong> CSS makes images fit the gallery and keeps their displayed height consistent; <code>object-fit: cover</code> prevents stretching. Meaningful <code>alt</code> text describes the image for screen-reader users and when an image cannot load. Captions add context for everyone. Large image files can slow a page, so appropriately sized, compressed images improve loading and mobile experience. These example images are loaded from an external image host and therefore require an internet connection.</div>
+</section>
+
+<section class="task" id="q5">
+  <div class="task-head"><div class="number">Q5</div><div><h2>Department Navigation Page</h2><p class="sub">Navigation menu with internal section links and external resources.</p></div></div>
+  <div class="site-preview">
+    <header><strong>Department of Computer Applications</strong><br><span style="font-size:.9rem">Learn • Build • Create</span></header>
+    <nav aria-label="Department example navigation"><div class="nav-inner">
+      <a href="#q1">Home</a><a href="#about-dept">About</a><a href="#courses-dept">Courses</a><a href="#faculty-dept">Faculty</a><a href="#labs-dept">Labs</a><a href="#q2">Assignments</a><a href="#q4">Gallery</a><a href="#contact-dept">Contact</a>
+    </div></nav>
+    <div class="site-content">
+      <h3 id="about-dept">About the Department</h3><p>The department introduces students to computing fundamentals, software development and practical problem-solving.</p>
+      <h3 id="courses-dept">Courses</h3><p>Sample topics include programming, databases, web technology and computer networks.</p>
+      <h3 id="faculty-dept">Faculty</h3><p>Faculty members guide students through lectures, practical work and projects.</p>
+      <h3 id="labs-dept">Computer Labs</h3><p>Labs provide a place to practise coding, test programs and work collaboratively.</p>
+      <h3 id="contact-dept">Contact</h3><p>Email: <a href="mailto:department@example.edu">department@example.edu</a> (sample address).</p>
+      <p>External learning resource: <a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a>.</p>
+    </div>
+  </div>
+  <div class="note"><strong>Internal vs external links:</strong> an internal link such as <code>href="#q2"</code> jumps to an element on this page with the matching ID. An external link points to another website, such as MDN Web Docs. Use meaningful link text, and use <code>rel="noopener noreferrer"</code> with links opened in a new tab.</div>
+</section>
+
+<section class="task" id="q6">
+  <div class="task-head"><div class="number">Q6</div><div><h2>HTML5 Semantic Department Page</h2><p class="sub">A visual layout demonstrating header, nav, main, section, article, aside and footer.</p></div></div>
+  <div class="semantic-layout">
+    <header><strong>&lt;header&gt;</strong> — Department name and introductory content</header>
+    <nav><strong>&lt;nav&gt;</strong> — Main links: Home · Courses · Faculty · Contact</nav>
+    <main><strong>&lt;main&gt;</strong> — The page's primary content
+      <article><strong>&lt;article&gt;</strong> — Independent item: Department news
+        <section><strong>&lt;section&gt;</strong> — Courses<br><small>Information about BCA and related subjects.</small></section>
+        <section><strong>&lt;section&gt;</strong> — Student projects<br><small>Examples of practical learning activities.</small></section>
+      </article>
+    </main>
+    <aside><strong>&lt;aside&gt;</strong><p>Related links, notices or upcoming events.</p></aside>
+    <footer><strong>&lt;footer&gt;</strong> — Contact details and copyright information</footer>
+  </div>
+  <h3>Purpose of semantic elements</h3>
+  <ul>
+    <li><code>&lt;header&gt;</code>: introductory content for a page or section.</li>
+    <li><code>&lt;nav&gt;</code>: a major group of navigation links.</li>
+    <li><code>&lt;main&gt;</code>: the main, unique content of the document.</li>
+    <li><code>&lt;section&gt;</code>: a thematic group of related content, usually with a heading.</li>
+    <li><code>&lt;article&gt;</code>: self-contained content that could stand on its own.</li>
+    <li><code>&lt;aside&gt;</code>: related or supplementary content.</li>
+    <li><code>&lt;footer&gt;</code>: closing information for a page or section.</li>
+  </ul>
+  <p>Semantic structure is better than using generic containers everywhere because it gives content meaningful roles, improves document readability and can help browsers, search engines and assistive technologies interpret the page. A <code>&lt;div&gt;</code> is still useful when no semantic element fits.</p>
+</section>
+
+<section class="task" id="q7">
+  <div class="task-head"><div class="number">Q7</div><div><h2>Character Entity Challenge</h2><p class="sub">Correct display of mathematical symbols, copyright, quotation marks and special characters.</p></div></div>
+  <div class="entity-list">
+    <div class="entity"><code>&amp;lt;</code> → &lt;<p>Less-than sign; avoids confusing text with an HTML tag.</p></div>
+    <div class="entity"><code>&amp;gt;</code> → &gt;<p>Greater-than sign; useful in comparisons and examples.</p></div>
+    <div class="entity"><code>&amp;amp;</code> → &amp;<p>Ampersand; also used to begin named entities.</p></div>
+    <div class="entity"><code>&amp;copy;</code> → &copy;<p>Copyright symbol for copyright notices.</p></div>
+    <div class="entity"><code>&amp;quot;</code> → &quot;<p>Quotation mark; useful when a quote must be represented in markup.</p></div>
+    <div class="entity"><code>&amp;apos;</code> → &apos;<p>Apostrophe character represented as a named entity.</p></div>
+    <div class="entity"><code>&amp;nbsp;</code> → A&nbsp;B<p>Non-breaking space keeps adjacent words together.</p></div>
+    <div class="entity"><code>&amp;times;</code> → &times;<p>Multiplication sign.</p></div>
+    <div class="entity"><code>&amp;divide;</code> → &divide;<p>Division sign.</p></div>
+    <div class="entity"><code>&amp;le;</code> → &le; and <code>&amp;ge;</code> → &ge;<p>Less-than-or-equal and greater-than-or-equal signs.</p></div>
+    <div class="entity"><code>&amp;trade;</code> → &trade;<p>Trademark symbol.</p></div>
+    <div class="entity"><code>&amp;euro;</code> → &euro;<p>Euro currency symbol.</p></div>
+  </div>
+  <h3>Example expression</h3><p>For all x &isin; real numbers, if x &ge; 0 and x &lt; 10, then x &times; 2 &le; 18 for x &le; 9.</p>
+  <p>Character references are useful when a character has special meaning in HTML syntax or when a symbol is not easy to type. Most modern documents should use UTF-8, which supports a wide range of characters directly, but entities remain useful for reserved markup characters and readable examples.</p>
+</section>
+
+<section class="task" id="q8">
+  <div class="task-head"><div class="number">Q8</div><div><h2>Frames: Old Approach vs Modern Design</h2><p class="sub">Comparison of traditional frames/framesets and a modern semantic, CSS-based layout.</p></div></div>
+  <div class="comparison">
+    <div class="compare-card old"><h3>Traditional frames / frameset</h3><p>Older HTML used <code>&lt;frameset&gt;</code> and <code>&lt;frame&gt;</code> to split a browser window into separate independently loaded documents.</p><ul><li>Each frame could load a different HTML page.</li><li>Navigation and content could scroll independently.</li><li>Frames often made bookmarking, history, responsive layouts and accessibility harder.</li><li><code>&lt;frameset&gt;</code> and <code>&lt;frame&gt;</code> are obsolete in HTML5 and should not be used for new pages.</li></ul></div>
+    <div class="compare-card modern"><h3>Modern HTML5 + CSS</h3><p>Use semantic HTML for meaning and CSS Grid/Flexbox for page layout.</p><ul><li>Use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;aside&gt;</code> and <code>&lt;footer&gt;</code> where appropriate.</li><li>Use CSS to create columns and responsive layouts.</li><li>Use regular links for navigation and meaningful headings for structure.</li><li>Use an <code>&lt;iframe&gt;</code> only when embedding a separate resource is genuinely required.</li></ul></div>
+  </div>
+  <h3>Example modern page structure</h3>
+  <pre><code>&lt;header&gt;Department header&lt;/header&gt;
+&lt;nav aria-label="Main navigation"&gt;Navigation links&lt;/nav&gt;
+&lt;main class="layout"&gt;
+  &lt;article&gt;Main page content&lt;/article&gt;
+  &lt;aside&gt;Related information&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Contact and copyright&lt;/footer&gt;
+
+/* CSS idea */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(200px, 1fr);
+  gap: 1rem;
+}</code></pre>
+  <p><strong>Conclusion:</strong> modern semantic HTML and CSS provide a flexible, responsive and accessible structure without dividing the browser window into obsolete frames. A media query can stack the columns on smaller screens.</p>
+</section>
+
+<footer class="page-footer">
+  <p>&copy; 2026 • BCA Unit II — HTML &amp; HTML5 Practical Assignment</p>
+  <p class="small">Submitted by Kaif Ahmad. The timetable and department contact information are illustrative samples; replace them if your teacher provided official details.</p>
+  <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a></p>
+</footer>
+</main>
+</body>
+</html>
